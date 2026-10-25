@@ -31,6 +31,10 @@
 - The GY-GPS6MV2 board usually has a small 3.3 V regulator (a 5-pin or 3-pin chip near VCC, often marked `662K`), so it can be fed 3.3–5 V.
 - **Decision: power it from 3.3 V (Pi pin 1).** That works whether or not the regulator is there, and the TX line can never go above 3.3 V.
 - UART: 9600 baud, 8N1, NMEA output by default (datasheet section 7.1).
+- **Chip identity test (2026-10-25): it's a clone, not a u-blox chip.**
+  - u-blox `UBX MON-VER` poll (`B5 62 0A 04 00 00 0E 34`): **no reply**, so it isn't a genuine u-blox chip.
+  - CASIC query `$PCAS06,0*1B`: replied `$GPTXT,01,01,02,SW=URANUS4,V4.3.0.5`. That's CASIC firmware (Hangzhou Zhongke "AT65xx" family, the same family as the AT6558).
+  - It receives GPS + BeiDou (`$GN`/`$BD` sentences). Configure it with `$PCAS` commands, not UBX. Linux's `gnss-ubx` driver may still work for plain NMEA (test in S33).
 
 ## Display notes (5" HDMI, XPT2046 touch)
 - Video over HDMI, touch over SPI on the GPIO header (pins 1–26). Its MI/MO/SCK/CS/IRQ pins share the SPI bus with the MCP2515 (S24): check which CS pin it uses before planning CAN.
