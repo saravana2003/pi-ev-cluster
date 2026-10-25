@@ -1,12 +1,12 @@
 # PROGRESS — Weekend Projects
 
-GitHub repo: _(add the link after S2; planned GitHub username: saravana2003)_
+GitHub repo: https://github.com/saravana2003/pi-ev-cluster
 
 ## Status
 | Session | Title | Status |
 |---|---|---|
 | S1 | Git on the Pi + first commit | ✅ |
-| S2 | GitHub + push | ⬜ |
+| S2 | GitHub + push | ✅ |
 | S3 | Project skeleton + documentation habit | ⬜ |
 | S4 | Meet the GPS + wire it safely | ⬜ |
 | S5 | Turn on UART and see raw GPS data | ⬜ |
@@ -68,3 +68,13 @@ Legend: ⬜ not started · 🟡 in progress · ✅ done
   - `init.defaultBranch main` matches GitHub's default
 - Problems & fixes: none. Saro already knew git, so Claude ran the setup and Saro reviews it.
 - Next: S2 — GitHub + push (SSH key, repo `pi-ev-cluster` under `saravana2003`).
+
+### 2026-10-25 · S2 — GitHub + push
+- Done: created an ed25519 SSH key on the Pi, added it to GitHub (saravana2003), verified the github.com host fingerprint, created the public repo `pi-ev-cluster`, added the `origin` remote, pushed `main`.
+- Learned:
+  - A remote is the online copy of the repo; `push` uploads commits, `pull` downloads them
+  - SSH key pair: private key stays on the Pi, public key (the "padlock") goes to GitHub
+  - `known_hosts` stores trusted server fingerprints, so the Pi can't be fooled by a fake server
+  - SSH key = permission to push; GPG/SSH signing = proof of who wrote a commit (optional, "Verified" badge)
+- Problems & fixes: Claude Code's command safety check was down, so Saro ran the first push himself with `! git push -u origin main`.
+- Next: S3 — project skeleton + documentation habit. (Still to do for S2: paste the GitHub link in the Learning Everyday chat.)
