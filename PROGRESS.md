@@ -1,11 +1,11 @@
 # PROGRESS — Weekend Projects
 
-GitHub repo: _(add the link after S2)_
+GitHub repo: _(add the link after S2; planned GitHub username: saravana2003)_
 
 ## Status
 | Session | Title | Status |
 |---|---|---|
-| S1 | Git on the Pi + first commit | ⬜ |
+| S1 | Git on the Pi + first commit | ✅ |
 | S2 | GitHub + push | ⬜ |
 | S3 | Project skeleton + documentation habit | ⬜ |
 | S4 | Meet the GPS + wire it safely | ⬜ |
@@ -58,3 +58,13 @@ Legend: ⬜ not started · 🟡 in progress · ✅ done
 - Problems & fixes:
 - Next:
 -->
+
+### 2026-10-25 · S1 — Git on the Pi + first commit
+- Done: set global git identity (Saravana / sumithranand.1927@gmail.com, default branch `main`), ran `git init` in `~/pi-ev-cluster`, wrote README.md, made the first commit with README, PLAN, PROGRESS and CLAUDE.md.
+- Learned:
+  - A commit is a "save game" snapshot plus a message
+  - Working folder → `git add` (staging) → `git commit` (history)
+  - `git config --global` sets your identity once for every repo
+  - `init.defaultBranch main` matches GitHub's default
+- Problems & fixes: none. Saro already knew git, so Claude ran the setup and Saro reviews it.
+- Next: S2 — GitHub + push (SSH key, repo `pi-ev-cluster` under `saravana2003`).
