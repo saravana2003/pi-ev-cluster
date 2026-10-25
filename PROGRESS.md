@@ -7,7 +7,7 @@ GitHub repo: https://github.com/saravana2003/pi-ev-cluster
 |---|---|---|
 | S1 | Git on the Pi + first commit | ✅ |
 | S2 | GitHub + push | ✅ |
-| S3 | Project skeleton + documentation habit | ⬜ |
+| S3 | Project skeleton + documentation habit | ✅ |
 | S4 | Meet the GPS + wire it safely | ⬜ |
 | S5 | Turn on UART and see raw GPS data | ⬜ |
 | S6 | Understand NMEA sentences | ⬜ |
@@ -78,3 +78,13 @@ Legend: ⬜ not started · 🟡 in progress · ✅ done
   - SSH key = permission to push; GPG/SSH signing = proof of who wrote a commit (optional, "Verified" badge)
 - Problems & fixes: Claude Code's command safety check was down, so Saro ran the first push himself with `! git push -u origin main`.
 - Next: S3 — project skeleton + documentation habit. (Still to do for S2: paste the GitHub link in the Learning Everyday chat.)
+
+### 2026-10-25 · S3 — Project skeleton + documentation habit
+- Done: created `gps/ arduino/ dashboard/ docs/ scripts/` (each with a short README so git tracks them), added `.gitignore`, wrote `docs/hardware.md` (kit list, safety rules, planned pins, Pi 5 pinout from `pinout`).
+- Learned:
+  - Git doesn't track empty folders; a small README (or `.gitkeep`) keeps them
+  - `.gitignore` keeps junk out of the repo (`__pycache__`, logs, build output like `.ko`)
+  - Markdown: `#` headings, `|` tables, triple-backtick code blocks, `**bold**`
+  - Small focused commits: one commit per idea (skeleton, then docs)
+- Problems & fixes: none. Note: the GPS VCC pin (3.3 V vs 5 V) must be checked against the module's label in S4.
+- Next: S4 — meet the GPS + wire it safely.
