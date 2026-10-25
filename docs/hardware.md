@@ -21,9 +21,20 @@
 |---|---|---|
 | GPS TX → Pi RX | 10 | GPIO15 (UART0 RX) |
 | GPS RX ← Pi TX | 8 | GPIO14 (UART0 TX) |
-| GPS VCC | 1 or 17 (3.3 V) / 2 (5 V, check module) | — |
+| GPS VCC | **1 (3.3 V)** | — |
 | GND | 6 | — |
 | MCP2515 SPI (later) | 19 MOSI, 21 MISO, 23 SCLK, 24 CE0, 22 INT | GPIO10, 9, 11, 8, 25 |
+
+## GPS module details (GY-GPS6MV2 board, NEO-6M-0-001 chip)
+- From the u-blox NEO-6 datasheet: the chip's VCC is 2.7–3.6 V (absolute max 3.6 V), and its pins can't take more than 3.6 V.
+- The chip's TX output high level is about VCC − 0.4 V, so roughly 3 V. That's safe for the Pi's RX pin.
+- The GY-GPS6MV2 board usually has a small 3.3 V regulator (a 5-pin or 3-pin chip near VCC, often marked `662K`), so it can be fed 3.3–5 V.
+- **Decision: power it from 3.3 V (Pi pin 1).** That works whether or not the regulator is there, and the TX line can never go above 3.3 V.
+- UART: 9600 baud, 8N1, NMEA output by default (datasheet section 7.1).
+
+## Display notes (5" HDMI, XPT2046 touch)
+- Video over HDMI, touch over SPI on the GPIO header (pins 1–26). Its MI/MO/SCK/CS/IRQ pins share the SPI bus with the MCP2515 (S24): check which CS pin it uses before planning CAN.
+- When the display sits on the header it covers pins 8/10 (UART), so the GPS wires need to come from the J3 pass-through pads or a stacking header.
 
 ## Pi 5 pinout (output of `pinout`)
 ```
