@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs and recorded data
+*.log
+logs/
+*.csv
+
+# Editors / OS
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# Arduino build output
+arduino/**/build/
+
+# Kernel module build output (Project 2)
+*.o
+*.ko
+*.mod
+*.mod.c
+*.order
+*.symvers
+.*.cmd
+.tmp_versions/
+*.dtbo
+
+# Claude Code local settings
+.claude/settings.local.json
